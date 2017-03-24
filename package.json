@@ -6,12 +6,14 @@
   "author": "remyli",
   "license": "MIT",
   "scripts": {
+    "start": "yarn run server:dev & yarn run watch",
+    "server:dev": "browser-sync start --server public --files public --no-open --port 3207",
     "build": "NODE_ENV=production yarn run build:css & yarn run build:js",
     "build:html": "ejs-cli --base-dir src/templates '*.ejs' --out ./public",
     "build:js": "webpack",
     "build:css": "NODE_ENV=development postcss -c postcss.config.js -o public/css/main.bundle.css src/styles/main.css",
     "watch": "yarn run watch:ejs & yarn run watch:css & yarn run watch:js",
-    "watch:ejs": "watch 'yarn run build:html' src/templates",
+    "watch:ejs": "watch 'yarn run build:html' src/templates --interval=0.1",
     "watch:css": "NODE_ENV=development postcss -c postcss.config.js -o public/css/main.bundle.css src/styles/main.css -w",
     "watch:js": "webpack -w",
     "lint": "eslint src test",
@@ -64,5 +66,8 @@
     "last 2 Opera versions",
     "last 2 iOS versions",
     "last 2 ChromeAndroid versions"
-  ]
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  }
 }
