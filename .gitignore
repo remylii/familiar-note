@@ -13,7 +13,8 @@ coverage
 
 # Dependency directory
 node_modules
-public
+public/*
+!public/.gitkeep
 .nyc_output
 
 # Distribution
