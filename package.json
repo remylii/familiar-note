@@ -10,6 +10,10 @@
     "build:html": "ejs-cli --base-dir src/templates '*.ejs' --out ./public",
     "build:js": "webpack",
     "build:css": "NODE_ENV=development postcss -c postcss.config.js -o public/css/main.bundle.css src/styles/main.css",
+    "watch": "yarn run watch:ejs & yarn run watch:css & yarn run watch:js",
+    "watch:ejs": "watch 'yarn run build:html' src/templates",
+    "watch:css": "NODE_ENV=development postcss -c postcss.config.js -o public/css/main.bundle.css src/styles/main.css -w",
+    "watch:js": "webpack -w",
     "lint": "eslint src test",
     "typecheck": "flow check",
     "test": "NODE_ENV=test ava -v",
@@ -43,6 +47,7 @@
     "postcss-sorting": "^2.0.1",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",
+    "watch": "^1.0.2",
     "webpack": "^2.3.1"
   },
   "ava": {
