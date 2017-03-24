@@ -1,6 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
+const webpack = require('webpack');
+const wp_plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  })
+];
+
 // entry point
 let entryList = {};
 const files = fs.readdirSync(path.resolve(__dirname, 'src/scripts'));
@@ -31,8 +38,20 @@ module.exports = {
     ]
   },
 
-  plugins: [
-  ],
+  plugins: process.env.NODE_ENV === 'production' ?
+  wp_plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      sourceMap: false,
+      compressor: {
+        warnings: false
+      },
+      output: {
+        comments: false
+      }
+    })
+  ])
+  : wp_plugins,
 
   resolve: {
     modules: [
