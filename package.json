@@ -6,6 +6,7 @@
   "author": "remyli",
   "license": "MIT",
   "scripts": {
+    "build:js": "webpack",
     "lint": "eslint src test",
     "typecheck": "flow check",
     "test": "NODE_ENV=test ava -v",

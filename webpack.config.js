@@ -3,7 +3,7 @@ const path = require('path');
 
 // entry point
 let entryList = {};
-files = fs.readdirSync(path.resolve(__dirname, 'src/scripts'));
+const files = fs.readdirSync(path.resolve(__dirname, 'src/scripts'));
 files.forEach(file => {
     if (/\.js$/.test(file)) {
       let tmp = file.match(/(.*)\.js$/);
