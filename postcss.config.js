@@ -11,6 +11,6 @@ module.exports = ctx => ({
     'postcss-nested': {},
     'postcss-sorting': {},
     'cssnano': ctx.env === 'production' ? {} : false,
-    'postcss-reporter': { clearMessage: true }
+    'postcss-reporter': { clearMessages: true }
   }
 })

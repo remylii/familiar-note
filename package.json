@@ -6,9 +6,9 @@
   "author": "remyli",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run server:dev & yarn run watch",
+    "start": "NODE_ENV=development && yarn run server:dev & yarn run watch",
     "server:dev": "browser-sync start --server public --files public --no-open --port 3207",
-    "build": "NODE_ENV=production yarn run build:css & yarn run build:js",
+    "build:production": "NODE_ENV=production yarn run build:css & yarn run build:js",
     "build:html": "ejs-cli --base-dir src/templates '*.ejs' --out ./public",
     "build:js": "webpack",
     "build:css": "postcss -c postcss.config.js -o public/css/main.bundle.css src/styles/main.css",
