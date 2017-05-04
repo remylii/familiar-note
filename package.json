@@ -39,7 +39,7 @@
     "eslint-plugin-import": "^2.2.0",
     "flow-bin": "^0.45.0",
     "flowtype": "^2.0.0",
-    "minireset.css": "^0.0.3",
+    "normalize.css": "^7.0.0",
     "nyc": "^10.3.0",
     "postcss": "^5.2.17",
     "postcss-cli": "^3.2.0",

@@ -1,2 +1,4 @@
-@import "./vendor/minireset.min.css";
-@import "./page.css";
+@charset "UTF-8";
+
+@import "normalize.css";
+@import "./base.css";
